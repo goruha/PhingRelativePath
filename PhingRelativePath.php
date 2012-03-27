@@ -58,7 +58,8 @@ class PhingRelativePath extends SymlinkTask {
 
         $this->log('Linking: ' . $target . ' to ' . $link, Project::MSG_INFO);
 
+        $base_dir = dirname($link);
         $link = $this->getRelativePath($link, $target);
-        return $fs->symlink($target, $link);
+        return exec("cd $base_dir; ln -s $target $link");
     }
 }
