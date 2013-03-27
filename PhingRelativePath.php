@@ -50,7 +50,7 @@ class PhingRelativePath extends SymlinkTask {
             }
 
             if (readlink($link) == $target || !$this->getOverwrite()) {
-                $this->log('Link exists: ' . $link, Project::MSG_ERR);
+                $this->log('Link exists: ' . $link, Project::MSG_INFO);
                 return false;
             }
 
